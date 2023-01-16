@@ -3,7 +3,7 @@ import  express  from "express";
 const app = express();
 const port = 9000;
 
-app.use('/',(req,res) => {
+app.use('/api',(req,res) => {
   res.json({
     name: 'Dinislam',
     add: 'Ashulia Dhaka'
