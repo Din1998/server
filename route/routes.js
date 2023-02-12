@@ -22,7 +22,7 @@ featureRouter.post('/post',(req,res) => {
 
 //Update feature blogs
 featureRouter.put('/:id',(req,res) => {
-  Task.findOneAndUpdate({
+  FeatureBlog.findByIdAndUpdate({
       _id: req.params.id
   },req.body,{
       new : true
@@ -34,7 +34,7 @@ featureRouter.put('/:id',(req,res) => {
 
 //Detele feature blogs
 featureRouter.delete('/:id',(req,res) => {
-  Task.findByIdAndDelete(req.params.id,(err,doc) =>{
+  FeatureBlog.findByIdAndDelete(req.params.id,(err,doc) =>{
       if(err) console.log(err)
       res.json(doc)
   })
