@@ -3,18 +3,33 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
-const featureRouter = require('./route/routes')
+const featureRouter = require('./route/routes');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const passportSetup = require('./passport');
+const authRoute = require('./route/authRoute');
+const session = require('express-session')
 
+// app.use(cookieSession({
+//   name:"cookie_session",
+//   keys:["Din"],
+//   maxAge: 24 * 60 * 60 * 100
 
+// }))
+
+app.use(session({secret: "din@@"}))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(bodyParser.json())
 app.use(express.json())
 app.use(
   cors({
-    origin: "http://localhost:8000",
+    origin: "http://localhost:3000",
     methods: "GET,POST,PUT,DELETE",
     credentials: true
   })
 )
+app.use('/auth', authRoute);
 
 //
 app.use('/api',featureRouter)
