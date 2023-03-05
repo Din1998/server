@@ -11,6 +11,17 @@ featureRouter.get('/',(req,res) => {
   })
 })
 
+//Get by id
+featureRouter.get('/:id',(req,res) => {
+  
+  FeatureBlog.findById(req.params.id)
+  .then(doc => {
+    if (!doc) {return res.status(404).end()}
+    return res.status(200).json(doc);
+  })
+  .catch(err => next(err))
+})
+
 //Post feature blogs
 featureRouter.post('/post',(req,res) => {
  const featureBlog = new FeatureBlog(req.body);

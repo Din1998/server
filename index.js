@@ -17,14 +17,14 @@ const session = require('express-session')
 
 // }))
 
-app.use(session({secret: "din@@"}))
+app.use(session({secret: "din862"}))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(bodyParser.json())
 app.use(express.json())
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:3000",
     methods: "GET,POST,PUT,DELETE",
     credentials: true
   })
