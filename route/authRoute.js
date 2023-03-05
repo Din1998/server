@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport  = require('passport');
 
 //
-const CLIENT_URL = "https://bd-blog-jqwn-27d6xebeh-din1998.vercel.app";
+const CLIENT_URL = "https://bd-blog.vercel.app";
 
 //
 router.get("/login/success", (req, res) => {
