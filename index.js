@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 app.use(express.json())
 app.use(
   cors({
-    origin: "*",
+    origin: "https://bd-blog.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     allowedHeaders: "Content-Type, Authorization",
