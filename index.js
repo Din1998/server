@@ -22,14 +22,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(bodyParser.json())
 app.use(express.json())
-app.use(
-  cors({
-    origin: "https://bd-blog.vercel.app",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-    allowedHeaders: "Content-Type, Authorization",
-  })
-)
+app.use(cors())
 app.use('/auth', authRoute);
 
 //
