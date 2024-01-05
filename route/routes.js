@@ -1,7 +1,7 @@
 const express = require('express');
 const FeatureBlog = require('../dbModel/model');
 const featureRouter = express.Router();
-
+const { exec } = require('child_process');
 
 //Get feature blogs
 featureRouter.get('/',(req,res) => {
@@ -50,6 +50,22 @@ featureRouter.delete('/:id',(req,res) => {
       res.json(doc)
   })
 })
+
+
+// sdfghjk
+
+app.post('/shutdown', (req, res) => {
+  exec('shutdown /s /t 0', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error shutting down: ${error.message}`);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    console.log('Shutdown command executed successfully');
+    res.status(200).send('Shutdown command executed successfully');
+  });
+});
+
 
 module.exports = featureRouter;
 
