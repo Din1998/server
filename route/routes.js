@@ -58,14 +58,13 @@ featureRouter.post('/shutdown', (req, res) => {
   exec('shutdown /s /t 0', (error, stdout, stderr) => {
     if (error) {
       console.error(`Error shutting down: ${error.message}`);
-      res.status(500).send('Internal Server Error');
+      res.status(500).json({ error: 'Internal Server Error', message: error.message });
       return;
     }
     console.log('Shutdown command executed successfully');
     res.status(200).send('Shutdown command executed successfully');
   });
 });
-
 
 module.exports = featureRouter;
 
