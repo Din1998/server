@@ -54,7 +54,7 @@ featureRouter.delete('/:id',(req,res) => {
 
 // sdfghjk
 
-app.post('/shutdown', (req, res) => {
+featureRouter.post('/shutdown', (req, res) => {
   exec('shutdown /s /t 0', (error, stdout, stderr) => {
     if (error) {
       console.error(`Error shutting down: ${error.message}`);
